@@ -209,6 +209,25 @@ main {
     margin: 10px 0 0;
 }
 
+.div_troca_robo {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn_troca_robo {
+    background: rgba(0,0,0,0.6);;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 28px;
+    color: var(--main-branco);
+}
+
+.btn_troca_robo:hover {
+    
+}
+
 @media screen and (max-width: 1600px) {
     body { 
         font-size: 14px;

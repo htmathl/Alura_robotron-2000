@@ -1,5 +1,7 @@
 const controle = document.querySelectorAll('[data-controle]');
 const estatistica = document.querySelectorAll('[data-estatistica]');
+const botoes_troca = document.querySelectorAll('[data-troca]');
+
 const pecas = {
     "bracos": {
         "forca": 29,
@@ -32,8 +34,16 @@ const pecas = {
         "energia": 0,
         "velocidade": -2
     }
-}
+};
 
+const listaRobos = [
+    'Robotron 2000 - Rosa',
+    'Robotron 2000 - Amarelo',
+    'Robotron 2000 - Branco',
+    'Robotron 2000 - Preto',
+    'Robotron 2000 - Vermelho',
+    'Robotron 2000 - Azul'
+];
 
 controle.forEach(e => {
     e.addEventListener("click", event => {
@@ -56,3 +66,22 @@ function atualizaEstatistica(peca) {
         el.textContent = parseInt(el.textContent) + pecas[peca][el.dataset.estatistica];
     });
 }
+
+let cont = 0;
+
+botoes_troca.forEach(el => {
+    el.addEventListener("click", event => {
+        const troca = event.target.dataset.troca;
+        console.log(troca);
+        if(troca === "anterior") {
+            cont--;
+            if(cont < 0) cont = 5;
+        }
+        if(troca === "proximo") {
+            cont++;
+            if(cont > 5) cont = 0;
+        }
+        console.log(cont);
+        document.querySelector(".robo").src = `img/${listaRobos[cont]}.png`;
+    });
+});
