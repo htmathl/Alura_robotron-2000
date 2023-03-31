@@ -225,7 +225,8 @@ main {
 }
 
 .btn_troca_robo:hover {
-    
+    background-color: var(--main-branco);
+    color: var(--main-preto);
 }
 
 @media screen and (max-width: 1600px) {
